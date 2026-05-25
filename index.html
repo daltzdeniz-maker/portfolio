@@ -45,9 +45,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(27,42,59,0.9
 
 .orbit-letter{
   position:absolute;
-  top:50%;left:50%;
+  top:58%;left:50%;
   font-family:'Space Grotesk',sans-serif;
-  font-size:14px;
+  font-size:18px;
   font-weight:700;
   color:#fff;
   will-change:transform,opacity;
@@ -322,14 +322,14 @@ function sendEmail(){
     });
 
     function animate(){
-      angle=(angle-speed+360)%360;
+      angle=(angle+speed)%360;
       var w=front.offsetWidth||400;
       var h=front.offsetHeight||500;
       var rx=w*0.60;   /* horizontal radius */
       var ry=h*0.12;   /* vertical radius — flat ellipse */
 
       letters.forEach(function(_,i){
-        var a=(angle+(360/total)*i)*Math.PI/180;
+        var a=(angle-(360/total)*i)*Math.PI/180;
         var cosA=Math.cos(a);
         var sinA=Math.sin(a);
 
