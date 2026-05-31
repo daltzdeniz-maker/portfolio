@@ -16,6 +16,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(27,42,59,0.9
 .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:#fff}
 
+.portfolio-intro{min-height:92vh;background:#08131d;color:#fff;position:relative;display:flex;align-items:center;padding:6rem 4rem 4rem;overflow:hidden}
+.portfolio-intro::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 72% 42%,rgba(125,211,252,0.18),transparent 32%),linear-gradient(90deg,rgba(8,19,29,0.96),rgba(8,19,29,0.72) 48%,rgba(8,19,29,0.2));}
+.portfolio-intro::after{content:'';position:absolute;left:0;right:0;bottom:0;height:26vh;z-index:2;background:linear-gradient(to bottom,transparent,#1b2a3b)}
+.intro-content{position:relative;z-index:4;max-width:760px}
+.intro-label{display:inline-block;color:rgba(158,232,201,0.92);font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;border:1px solid rgba(158,232,201,0.3);padding:0.4rem 1rem;border-radius:2rem;margin-bottom:1.5rem}
+.intro-content h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.7rem,6vw,5.8rem);line-height:0.98;margin-bottom:1.2rem;color:#fff;font-weight:700}
+.intro-content h1 span{color:#9ee8c9;text-shadow:0 0 24px rgba(85,255,190,0.28)}
+.intro-sub{color:rgba(255,255,255,0.68);font-size:1rem;line-height:1.85;max-width:560px}
+.code-rain{position:absolute;inset:0;z-index:1;pointer-events:none}
+.rain-col{position:absolute;top:-240px;display:flex;flex-direction:column;gap:0.45rem;color:#9ee8c9;font:700 0.92rem/1 Consolas,'Courier New',monospace;text-shadow:0 0 12px rgba(85,255,190,0.85);opacity:0.74;animation:rainFall 5.8s linear infinite}
+.rain-col span{display:block;min-width:2.2rem;text-align:center}
+.rain-col:nth-child(1){left:44%;animation-delay:0s}
+.rain-col:nth-child(2){left:52%;animation-delay:0.8s;animation-duration:4.8s}
+.rain-col:nth-child(3){left:60%;animation-delay:1.7s;animation-duration:6.3s}
+.rain-col:nth-child(4){left:68%;animation-delay:0.3s;animation-duration:5.2s}
+.rain-col:nth-child(5){left:76%;animation-delay:1.2s;animation-duration:5.9s}
+.rain-col:nth-child(6){left:84%;animation-delay:2.1s;animation-duration:4.9s}
+.rain-col:nth-child(7){left:92%;animation-delay:1.5s;animation-duration:6.7s}
+@keyframes rainFall{to{transform:translateY(126vh);opacity:0.06}}
+
 .hero{min-height:100vh;background:#1b2a3b;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:6rem 4rem 0;position:relative;overflow:visible}
 .hero::before{content:'';position:absolute;top:-40%;right:-5%;width:550px;height:550px;border:1px solid rgba(255,255,255,0.05);border-radius:50%}
 .hero-text{position:relative;z-index:2}
@@ -146,9 +166,18 @@ footer{background:#0e1621;padding:1.5rem 4rem;text-align:center;color:rgba(255,2
 
 @media(prefers-reduced-motion:reduce){
   .photo-wrap{transition:none!important;transform:none!important;opacity:1!important}
+  .rain-col{animation:none!important;transform:none!important}
 }
 
 @media(max-width:900px){
+  .portfolio-intro{min-height:86vh;padding:6rem 1.5rem 3rem}
+  .rain-col{font-size:0.78rem}
+  .rain-col:nth-child(1){left:26%}
+  .rain-col:nth-child(2){left:40%}
+  .rain-col:nth-child(3){left:54%}
+  .rain-col:nth-child(4){left:68%}
+  .rain-col:nth-child(5){left:82%}
+  .rain-col:nth-child(6),.rain-col:nth-child(7){display:none}
   .hero{grid-template-columns:1fr;padding:5rem 1.5rem 0;text-align:center}
   .hero-visual{justify-content:center;margin-top:2rem}
   .photo-wrap{width:100%;max-width:340px}
@@ -175,6 +204,23 @@ footer{background:#0e1621;padding:1.5rem 4rem;text-align:center;color:rgba(255,2
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+<section class="portfolio-intro" aria-label="Portfolio introduction">
+  <div class="code-rain" aria-hidden="true">
+    <span class="rain-col"><span>AI</span><span>CRM</span><span>01</span><span>API</span><span>10</span><span>OPS</span></span>
+    <span class="rain-col"><span>LEAD</span><span>10</span><span>FLOW</span><span>01</span><span>BOT</span></span>
+    <span class="rain-col"><span>AUTO</span><span>01</span><span>SCORE</span><span>10</span><span>KPI</span></span>
+    <span class="rain-col"><span>DATA</span><span>OPS</span><span>11</span><span>CRM</span><span>01</span></span>
+    <span class="rain-col"><span>SYNC</span><span>01</span><span>CRM</span><span>AI</span><span>10</span></span>
+    <span class="rain-col"><span>BOT</span><span>10</span><span>KPI</span><span>API</span><span>01</span></span>
+    <span class="rain-col"><span>PIPE</span><span>11</span><span>OPS</span><span>ROI</span><span>00</span></span>
+  </div>
+  <div class="intro-content">
+    <div class="intro-label">AI-powered portfolio</div>
+    <h1>Marketing systems.<br><span>Automated growth.</span></h1>
+    <p class="intro-sub">A portfolio built around lead generation, CRM workflows, recruitment operations, and practical AI systems that help teams move faster.</p>
+  </div>
+</section>
 
 <section class="hero">
   <div class="hero-text">
@@ -314,29 +360,25 @@ function sendEmail(){
     document.body.classList.add('photo-motion');
 
     var raf=0;
-    var introDone=false;
 
     function setMotion(){
       raf=0;
+      var rect=hero.getBoundingClientRect();
       var heroHeight=hero.offsetHeight||window.innerHeight;
-      var scrollProgress=Math.min(Math.max(window.scrollY/(heroHeight*0.65),0),1);
+      var viewportHeight=window.innerHeight||heroHeight;
       var slideDistance=Math.min(window.innerWidth*0.8,620);
-      var eased=scrollProgress*scrollProgress*(3-2*scrollProgress);
-      var x=eased*slideDistance;
-      var opacity=1-(eased*0.55);
+      var enterProgress=Math.min(Math.max((viewportHeight-rect.top)/(viewportHeight*0.72),0),1);
+      var exitProgress=Math.min(Math.max((-rect.top)/(heroHeight*0.62),0),1);
+      var enterEase=enterProgress*enterProgress*(3-2*enterProgress);
+      var exitEase=exitProgress*exitProgress*(3-2*exitProgress);
+      var x=(1-enterEase)*slideDistance;
+      var opacity=enterEase;
 
-      if(!introDone&&window.scrollY<4){
-        photo.style.setProperty('--photo-slide-x',slideDistance+'px');
-        photo.style.setProperty('--photo-opacity','0');
-        requestAnimationFrame(function(){
-          introDone=true;
-          photo.style.setProperty('--photo-slide-x','0px');
-          photo.style.setProperty('--photo-opacity','1');
-        });
-        return;
+      if(exitProgress>0){
+        x=exitEase*slideDistance;
+        opacity=1-(exitEase*0.55);
       }
 
-      introDone=true;
       photo.style.setProperty('--photo-slide-x',x+'px');
       photo.style.setProperty('--photo-opacity',opacity);
     }
