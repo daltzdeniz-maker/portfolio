@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">a
 <title>Dalton S. Denis</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -35,12 +35,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(27,42,59,0.9
 .hero-stats .num{font-size:1.4rem;font-weight:700;color:#fff;font-family:'Space Grotesk',sans-serif}
 .hero-stats .lbl{font-size:0.65rem;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:0.12em}
 
-/* Photo wrap — the key to the behind/in-front effect */
-.photo-wrap{position:relative;width:400px;flex-shrink:0;margin-bottom:-5rem;z-index:4}
+/* Photo wrap â€” the key to the behind/in-front effect */
+.photo-wrap{
+  position:relative;width:400px;flex-shrink:0;margin-bottom:-5rem;z-index:4;
+  --photo-slide-x:0px;
+  transform:translate3d(var(--photo-slide-x),0,0);
+  opacity:1;
+  transition:transform 0.7s cubic-bezier(.22,1,.36,1),opacity 0.45s ease;
+  will-change:transform,opacity;
+}
+.photo-motion .photo-wrap{opacity:var(--photo-opacity,1)}
 
-/* Front orbit layer — letters in front of photo */
+/* Front orbit layer â€” letters in front of photo */
 .orbit-front{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:6}
-/* Back orbit layer — letters behind photo */
+/* Back orbit layer â€” letters behind photo */
 .orbit-back{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2}
 
 .orbit-letter{
@@ -136,6 +144,10 @@ footer{background:#0e1621;padding:1.5rem 4rem;text-align:center;color:rgba(255,2
 .hero-text{animation:fadeUp 0.7s ease both}
 .hero-visual{animation:fadeUp 0.7s 0.2s ease both}
 
+@media(prefers-reduced-motion:reduce){
+  .photo-wrap{transition:none!important;transform:none!important;opacity:1!important}
+}
+
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:5rem 1.5rem 0;text-align:center}
   .hero-visual{justify-content:center;margin-top:2rem}
@@ -195,9 +207,9 @@ footer{background:#0e1621;padding:1.5rem 4rem;text-align:center;color:rgba(255,2
       <p>I am an AI-Powered Marketing and Operations Assistant with a strong background in designing high-converting websites, lead generation, and executive support. I leverage AI tools to automate workflows and improve business efficiency.</p>
       <p>As a former Head of Recruitment, I bring experience in talent sourcing, screening, and onboarding, making me a well-rounded professional who understands both business development and people operations.</p>
       <div class="about-info">
-        <div class="info-item"><div class="info-icon">📍</div><div><div class="info-label">Location</div><div class="info-val">Baguio City, Philippines</div></div></div>
-        <div class="info-item"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-val">daltzdeniz@gmail.com</div></div></div>
-        <div class="info-item"><div class="info-icon">📱</div><div><div class="info-label">Phone</div><div class="info-val">+63 916 665 5244</div></div></div>
+        <div class="info-item"><div class="info-icon">ðŸ“</div><div><div class="info-label">Location</div><div class="info-val">Baguio City, Philippines</div></div></div>
+        <div class="info-item"><div class="info-icon">âœ‰ï¸</div><div><div class="info-label">Email</div><div class="info-val">daltzdeniz@gmail.com</div></div></div>
+        <div class="info-item"><div class="info-icon">ðŸ“±</div><div><div class="info-label">Phone</div><div class="info-val">+63 916 665 5244</div></div></div>
       </div>
     </div>
     <div>
@@ -240,12 +252,12 @@ footer{background:#0e1621;padding:1.5rem 4rem;text-align:center;color:rgba(255,2
   <div class="section-label">My journey</div>
   <div class="section-title">Work <span>Experience</span></div>
   <div class="timeline">
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">May 2025 – April 2026</div><div class="timeline-role">Business Development Representative / Head of Recruitment</div><div class="timeline-company">Remote</div><div class="timeline-desc">Managed client databases and conducted lead generation through cold email, LinkedIn, and social media. Booked meetings, tracked pipeline in CRM, and led talent sourcing, screening, and onboarding.</div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">November 2024 – November 2025</div><div class="timeline-role">Executive Assistant</div><div class="timeline-company">Part-time / Remote</div><div class="timeline-desc">Specialized in travel planning, calendar management, and email coordination to enhance executive productivity and efficiency.</div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">June 2023 – December 2024</div><div class="timeline-role">Marketing Specialist</div><div class="timeline-company">National Investment Solutions</div><div class="timeline-desc">Created social media content using Canva, Capcut, and Photoshop. Ran Mailchimp campaigns and built landing pages and sales funnels with ClickFunnels.</div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">December 2020 – May 2023</div><div class="timeline-role">Chat and Phone Customer Service</div><div class="timeline-company">Teleperformance</div><div class="timeline-desc">Troubleshot streaming issues, managed subscriptions, and resolved technical challenges for a seamless customer experience.</div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">October 2017 – December 2020</div><div class="timeline-role">Financial Advisor / Customer Service</div><div class="timeline-company">Teleperformance</div><div class="timeline-desc">Assisted borrowers with federal loans, handled inquiries, rescheduled payments, and presented optimal loan options.</div></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">October 2012 – May 2017</div><div class="timeline-role">Delivery Customer Support</div><div class="timeline-company">SITEL</div><div class="timeline-desc">Supported customers with product deliveries by tracking orders, handling cancellations, and assisting drivers.</div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">May 2025 â€“ April 2026</div><div class="timeline-role">Business Development Representative / Head of Recruitment</div><div class="timeline-company">Remote</div><div class="timeline-desc">Managed client databases and conducted lead generation through cold email, LinkedIn, and social media. Booked meetings, tracked pipeline in CRM, and led talent sourcing, screening, and onboarding.</div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">November 2024 â€“ November 2025</div><div class="timeline-role">Executive Assistant</div><div class="timeline-company">Part-time / Remote</div><div class="timeline-desc">Specialized in travel planning, calendar management, and email coordination to enhance executive productivity and efficiency.</div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">June 2023 â€“ December 2024</div><div class="timeline-role">Marketing Specialist</div><div class="timeline-company">National Investment Solutions</div><div class="timeline-desc">Created social media content using Canva, Capcut, and Photoshop. Ran Mailchimp campaigns and built landing pages and sales funnels with ClickFunnels.</div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">December 2020 â€“ May 2023</div><div class="timeline-role">Chat and Phone Customer Service</div><div class="timeline-company">Teleperformance</div><div class="timeline-desc">Troubleshot streaming issues, managed subscriptions, and resolved technical challenges for a seamless customer experience.</div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">October 2017 â€“ December 2020</div><div class="timeline-role">Financial Advisor / Customer Service</div><div class="timeline-company">Teleperformance</div><div class="timeline-desc">Assisted borrowers with federal loans, handled inquiries, rescheduled payments, and presented optimal loan options.</div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">October 2012 â€“ May 2017</div><div class="timeline-role">Delivery Customer Support</div><div class="timeline-company">SITEL</div><div class="timeline-desc">Supported customers with product deliveries by tracking orders, handling cancellations, and assisting drivers.</div></div>
   </div>
 </section>
 
@@ -256,10 +268,10 @@ footer{background:#0e1621;padding:1.5rem 4rem;text-align:center;color:rgba(255,2
     <div>
       <p class="contact-intro">Whether you are looking for an AI-powered marketing expert, operations specialist, or recruitment lead, I would love to hear from you.</p>
       <div class="contact-links">
-        <a href="mailto:daltzdeniz@gmail.com" class="contact-link"><div class="contact-icon">✉️</div>daltzdeniz@gmail.com</a>
-        <a href="tel:+639166655244" class="contact-link"><div class="contact-icon">📱</div>+63 916 665 5244</a>
-        <a href="https://www.linkedin.com/in/daltondenis/" target="_blank" class="contact-link"><div class="contact-icon">💼</div>linkedin.com/in/daltondenis</a>
-        <div class="contact-link"><div class="contact-icon">📍</div>Baguio City, Philippines</div>
+        <a href="mailto:daltzdeniz@gmail.com" class="contact-link"><div class="contact-icon">âœ‰ï¸</div>daltzdeniz@gmail.com</a>
+        <a href="tel:+639166655244" class="contact-link"><div class="contact-icon">ðŸ“±</div>+63 916 665 5244</a>
+        <a href="https://www.linkedin.com/in/daltondenis/" target="_blank" class="contact-link"><div class="contact-icon">ðŸ’¼</div>linkedin.com/in/daltondenis</a>
+        <div class="contact-link"><div class="contact-icon">ðŸ“</div>Baguio City, Philippines</div>
       </div>
     </div>
     <div>
@@ -274,7 +286,7 @@ footer{background:#0e1621;padding:1.5rem 4rem;text-align:center;color:rgba(255,2
   </div>
 </section>
 
-<footer>© 2026 Dalton S. Denis · Baguio City, Philippines · Built with care</footer>
+<footer>Â© 2026 Dalton S. Denis Â· Baguio City, Philippines Â· Built with care</footer>
 
 <script>
 function sendEmail(){
@@ -293,6 +305,57 @@ function sendEmail(){
 }
 
 (function(){
+  function initPhotoScrollMotion(){
+    var photo=document.getElementById('photoWrap');
+    var hero=document.querySelector('.hero');
+    if(!photo||!hero) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.body.classList.add('photo-motion');
+
+    var raf=0;
+    var introDone=false;
+
+    function setMotion(){
+      raf=0;
+      var heroHeight=hero.offsetHeight||window.innerHeight;
+      var scrollProgress=Math.min(Math.max(window.scrollY/(heroHeight*0.65),0),1);
+      var slideDistance=Math.min(window.innerWidth*0.8,620);
+      var eased=scrollProgress*scrollProgress*(3-2*scrollProgress);
+      var x=eased*slideDistance;
+      var opacity=1-(eased*0.55);
+
+      if(!introDone&&window.scrollY<4){
+        photo.style.setProperty('--photo-slide-x',slideDistance+'px');
+        photo.style.setProperty('--photo-opacity','0');
+        requestAnimationFrame(function(){
+          introDone=true;
+          photo.style.setProperty('--photo-slide-x','0px');
+          photo.style.setProperty('--photo-opacity','1');
+        });
+        return;
+      }
+
+      introDone=true;
+      photo.style.setProperty('--photo-slide-x',x+'px');
+      photo.style.setProperty('--photo-opacity',opacity);
+    }
+
+    function scheduleMotion(){
+      if(!raf) raf=requestAnimationFrame(setMotion);
+    }
+
+    setMotion();
+    window.addEventListener('scroll',scheduleMotion,{passive:true});
+    window.addEventListener('resize',scheduleMotion);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initPhotoScrollMotion);
+  } else { initPhotoScrollMotion(); }
+})();
+
+(function(){
   function init(){
     var front=document.getElementById('orbitFront');
     var back=document.getElementById('orbitBack');
@@ -304,7 +367,7 @@ function sendEmail(){
     var angle=0;
     var speed=0.4;
 
-    /* Create TWO spans per letter — one in front layer, one in back layer.
+    /* Create TWO spans per letter â€” one in front layer, one in back layer.
        We show/hide each based on whether the letter is in the front or back half. */
     var frontSpans=letters.map(function(ch){
       var s=document.createElement('span');
@@ -326,7 +389,7 @@ function sendEmail(){
       var w=front.offsetWidth||400;
       var h=front.offsetHeight||500;
       var rx=w*0.60;   /* horizontal radius */
-      var ry=h*0.12;   /* vertical radius — flat ellipse */
+      var ry=h*0.12;   /* vertical radius â€” flat ellipse */
 
       letters.forEach(function(_,i){
         var a=(angle-(360/total)*i)*Math.PI/180;
@@ -348,7 +411,7 @@ function sendEmail(){
 
         /* Upright letters: rotate each span so the letter stays vertical.
            The tangent angle of an ellipse at angle a is:
-           atan2(ry*cosA, -rx*sinA)  — but we want letters UPRIGHT so we DON'T
+           atan2(ry*cosA, -rx*sinA)  â€” but we want letters UPRIGHT so we DON'T
            rotate them along the tangent. We just keep them at 0 rotation.         */
         var transform='translate('+x+'px,'+y+'px) scale('+scale+')';
 
@@ -356,12 +419,12 @@ function sendEmail(){
           ?'0 2px 8px rgba(0,0,0,0.9), 0 0 14px rgba(255,255,255,0.2)'
           :'0 1px 3px rgba(0,0,0,0.95)';
 
-        /* Front span — visible only when letter is in front half */
+        /* Front span â€” visible only when letter is in front half */
         frontSpans[i].style.transform=transform;
         frontSpans[i].style.opacity=isFront?opacity:0;
         frontSpans[i].style.textShadow=shadow;
 
-        /* Back span — visible only when letter is in back half */
+        /* Back span â€” visible only when letter is in back half */
         backSpans[i].style.transform=transform;
         backSpans[i].style.opacity=isFront?0:opacity*0.35;
         backSpans[i].style.textShadow='0 1px 2px rgba(0,0,0,0.9)';
