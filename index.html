@@ -378,16 +378,9 @@ function sendEmail(){
       var viewportHeight=window.innerHeight||heroHeight;
       var slideDistance=Math.min(window.innerWidth*0.8,620);
       var enterProgress=Math.min(Math.max((viewportHeight-rect.top)/(viewportHeight*0.72),0),1);
-      var exitProgress=Math.min(Math.max((-rect.top)/(heroHeight*0.62),0),1);
       var enterEase=enterProgress*enterProgress*(3-2*enterProgress);
-      var exitEase=exitProgress*exitProgress*(3-2*exitProgress);
       var x=(1-enterEase)*slideDistance;
       var opacity=enterEase;
-
-      if(exitProgress>0){
-        x=exitEase*slideDistance;
-        opacity=1-(exitEase*0.55);
-      }
 
       photo.style.setProperty('--photo-slide-x',x+'px');
       photo.style.setProperty('--photo-opacity',opacity);
